@@ -7,7 +7,8 @@ import androidx.room.OnConflictStrategy;
 import androidx.room.Query;
 import androidx.room.Update;
 
-import com.example.d308vacationplanner_deja.entities.Excursions;
+
+import com.example.d424vacationplanner.entities.Excursions;
 
 import java.util.List;
 

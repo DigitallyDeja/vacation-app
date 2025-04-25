@@ -10,8 +10,9 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.d308vacationplanner_deja.R;
-import com.example.d308vacationplanner_deja.entities.Excursions;
+
+import com.example.d424vacationplanner.R;
+import com.example.d424vacationplanner.entities.Excursions;
 
 import org.jetbrains.annotations.NotNull;
 

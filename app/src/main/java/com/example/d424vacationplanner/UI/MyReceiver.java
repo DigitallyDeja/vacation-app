@@ -12,7 +12,8 @@ import android.widget.Toast;
 
 import androidx.core.app.NotificationCompat;
 
-import com.example.d308vacationplanner_deja.R;
+import com.example.d424vacationplanner.R;
+
 
 public class MyReceiver extends BroadcastReceiver {
     String channel_id = "test";

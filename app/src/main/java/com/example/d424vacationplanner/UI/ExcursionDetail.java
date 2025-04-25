@@ -15,10 +15,11 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.d308vacationplanner_deja.R;
-import com.example.d308vacationplanner_deja.database.Repository;
-import com.example.d308vacationplanner_deja.entities.Excursions;
-import com.example.d308vacationplanner_deja.entities.Vacations;
+
+import com.example.d424vacationplanner.R;
+import com.example.d424vacationplanner.database.Repository;
+import com.example.d424vacationplanner.entities.Excursions;
+import com.example.d424vacationplanner.entities.Vacations;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;

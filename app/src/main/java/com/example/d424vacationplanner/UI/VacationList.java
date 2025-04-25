@@ -2,9 +2,12 @@ package com.example.d424vacationplanner.UI;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
@@ -15,16 +18,20 @@ import androidx.core.view.WindowInsetsCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.d308vacationplanner_deja.R;
-import com.example.d308vacationplanner_deja.database.Repository;
-import com.example.d308vacationplanner_deja.entities.Excursions;
-import com.example.d308vacationplanner_deja.entities.Vacations;
+
+import com.example.d424vacationplanner.R;
+import com.example.d424vacationplanner.database.Repository;
+import com.example.d424vacationplanner.entities.Excursions;
+import com.example.d424vacationplanner.entities.Vacations;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class VacationList extends AppCompatActivity {
 private Repository repository;
+private List<Vacations> allVacations;
+private VacationAdapter vacationAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,14 +55,26 @@ private Repository repository;
 
         RecyclerView recyclerView=findViewById(R.id.listRecyclerView);
         repository = new Repository(getApplication());
-        List<Vacations> allVacations = repository.getAllVacation();
-        final VacationAdapter vacationAdapter=new VacationAdapter(this);
+        allVacations = repository.getAllVacation();
+        vacationAdapter=new VacationAdapter(this);
         recyclerView.setAdapter(vacationAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         vacationAdapter.setVacations(allVacations);
 
 
-        // System.out.println(getIntent().getStringExtra("home"));
+        EditText searchBar = findViewById(R.id.searchBar);
+        searchBar.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                filterVacations(s.toString());
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {}
+        });
     }
 
     @Override
@@ -67,13 +86,26 @@ private Repository repository;
     @Override
     protected void onResume(){
         super.onResume();
-        List<Vacations> allVacations=repository.getAllVacation();
-        RecyclerView recyclerView= findViewById(R.id.listRecyclerView);
-        final VacationAdapter vacationAdapter = new VacationAdapter(this);
-        recyclerView.setAdapter(vacationAdapter);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        allVacations = repository.getAllVacation();
         vacationAdapter.setVacations(allVacations);
+        if (vacationAdapter != null) {
+            vacationAdapter.setVacations(allVacations);
+        }
     }
+
+    private void filterVacations(String query) {
+        List<Vacations> filteredList = new ArrayList<>();
+        for (Vacations vacation : allVacations) {
+            if (vacation.getVacationName().toLowerCase().contains(query.toLowerCase()) ||
+                    vacation.getHotelName().toLowerCase().contains(query.toLowerCase()) ||
+                    vacation.getStartDate().toLowerCase().contains(query.toLowerCase()) ||
+                    vacation.getEndDate().toLowerCase().contains(query.toLowerCase())) {
+                filteredList.add(vacation);
+            }
+        }
+        vacationAdapter.setVacations(filteredList);
+    }
+
     public boolean onOptionsItemSelected(MenuItem item){
         if (item.getItemId() == R.id.cart){
             repository= new Repository(getApplication());

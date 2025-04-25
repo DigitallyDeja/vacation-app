@@ -11,7 +11,7 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-import com.example.d308vacationplanner_deja.R;
+import com.example.d424vacationplanner.R;
 
 public class MainActivity extends AppCompatActivity {
     public static int numAlert;

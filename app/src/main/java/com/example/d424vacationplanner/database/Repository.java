@@ -2,10 +2,11 @@ package com.example.d424vacationplanner.database;
 
 import android.app.Application;
 
-import com.example.d308vacationplanner_deja.dao.ExcursionDAO;
-import com.example.d308vacationplanner_deja.dao.VacationDAO;
-import com.example.d308vacationplanner_deja.entities.Excursions;
-import com.example.d308vacationplanner_deja.entities.Vacations;
+
+import com.example.d424vacationplanner.dao.ExcursionDAO;
+import com.example.d424vacationplanner.dao.VacationDAO;
+import com.example.d424vacationplanner.entities.Excursions;
+import com.example.d424vacationplanner.entities.Vacations;
 
 import java.util.List;
 import java.util.concurrent.ExecutorService;

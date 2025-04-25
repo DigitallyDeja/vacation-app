@@ -6,11 +6,10 @@ import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
 
-import com.example.d308vacationplanner_deja.dao.ExcursionDAO;
-import com.example.d308vacationplanner_deja.dao.VacationDAO;
-import com.example.d308vacationplanner_deja.entities.Excursions;
-import com.example.d308vacationplanner_deja.entities.Vacations;
-
+import com.example.d424vacationplanner.dao.ExcursionDAO;
+import com.example.d424vacationplanner.dao.VacationDAO;
+import com.example.d424vacationplanner.entities.Excursions;
+import com.example.d424vacationplanner.entities.Vacations;
 
 
 @Database(entities = {Vacations.class, Excursions.class}, version= 5, exportSchema = false)
