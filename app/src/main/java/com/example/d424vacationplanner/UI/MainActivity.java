@@ -4,6 +4,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -14,6 +16,12 @@ import androidx.core.view.WindowInsetsCompat;
 import com.example.d424vacationplanner.R;
 
 public class MainActivity extends AppCompatActivity {
+    private EditText usernameEditText;
+    private EditText passwordEditText;
+    private Button loginButton;
+
+    private final String correctUsername = "username10";
+    private final String correctPassword = "password20";
     public static int numAlert;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,13 +33,23 @@ public class MainActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
-        Button button = findViewById(R.id.button);
-        button.setOnClickListener(new View.OnClickListener() {
+        usernameEditText = findViewById(R.id.username);
+        passwordEditText = findViewById(R.id.password);
+        loginButton = findViewById(R.id.button);
+
+        loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, VacationList.class);
-                intent.putExtra("home", "Information sent successfully");
-                startActivity(intent);
+            public void onClick(View v) {
+                String enteredUsername = usernameEditText.getText().toString().trim();
+                String enteredPassword = passwordEditText.getText().toString().trim();
+
+                if (enteredUsername.equals(correctUsername) && enteredPassword.equals(correctPassword)) {
+                    Intent intent = new Intent(MainActivity.this, VacationList.class);
+                    startActivity(intent);
+                    finish();
+                } else {
+                    Toast.makeText(MainActivity.this, "Invalid Username or Password", Toast.LENGTH_SHORT).show();
+                }
             }
         });
     }
