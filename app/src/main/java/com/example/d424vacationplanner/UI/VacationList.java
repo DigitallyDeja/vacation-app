@@ -96,10 +96,7 @@ private VacationAdapter vacationAdapter;
     private void filterVacations(String query) {
         List<Vacations> filteredList = new ArrayList<>();
         for (Vacations vacation : allVacations) {
-            if (vacation.getVacationName().toLowerCase().contains(query.toLowerCase()) ||
-                    vacation.getHotelName().toLowerCase().contains(query.toLowerCase()) ||
-                    vacation.getStartDate().toLowerCase().contains(query.toLowerCase()) ||
-                    vacation.getEndDate().toLowerCase().contains(query.toLowerCase())) {
+            if (vacation.getVacationName().toLowerCase().contains(query.toLowerCase())) {
                 filteredList.add(vacation);
             }
         }
