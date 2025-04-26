@@ -8,7 +8,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
@@ -26,6 +28,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 import java.util.Locale;
 
 
@@ -39,15 +42,24 @@ public class ExcursionDetail extends AppCompatActivity {
     Repository repository;
     Excursions excursions;
     Excursions currentExcursion;
-
     DatePickerDialog.OnDateSetListener startExcursion;
     final Calendar myCalendarExcursion = Calendar.getInstance();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        repository = new Repository(getApplication());
         setContentView(R.layout.activity_excursion_detail2);
+        Button nextButton = findViewById(R.id.report);
+        nextButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ExcursionDetail.this, Reports.class);
+                intent.putExtra("vacationID", vacationID);
+                startActivity(intent);
+            }
+        });
+
+        repository = new Repository(getApplication());
         editName = findViewById(R.id.excursionName);
         editDate = findViewById(R.id.date);
         name = getIntent().getStringExtra("name");
@@ -197,4 +209,5 @@ public class ExcursionDetail extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
     }
+
 }
