@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FCE4EC"
+    android:fillViewport="true"
+    tools:context=".UI.Reports"
+    android:fitsSystemWindows="true">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="52dp">
+
+
+        <TextView
+            android:id="@+id/rpt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="serif"
+            android:text="Vacation Report"
+            android:textColor="#3E3E3E"
+            android:textSize="26sp"
+            android:textStyle="bold"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+
+        <Button
+            android:id="@+id/buttonStart"
+            android:layout_width="155dp"
+            android:layout_height="43dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="8dp"
+            android:backgroundTint="#FF6F61"
+            android:text="Start Date"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/rpt"
+            app:layout_constraintEnd_toStartOf="@id/startText" />
+
+
+        <TextView
+            android:id="@+id/startText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:text="Start Date"
+            android:textSize="20sp"
+            app:layout_constraintTop_toTopOf="@id/buttonStart"
+            app:layout_constraintBottom_toBottomOf="@id/buttonStart"
+            app:layout_constraintStart_toEndOf="@id/buttonStart"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <Button
+            android:id="@+id/buttonEnd"
+            android:layout_width="155dp"
+            android:layout_height="43dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="8dp"
+            android:backgroundTint="#FF6F61"
+            android:text="End Date"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/buttonStart"
+            app:layout_constraintEnd_toStartOf="@id/endText" />
+
+        <TextView
+            android:id="@+id/endText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:text="End Date"
+            android:textSize="20sp"
+            app:layout_constraintTop_toTopOf="@id/buttonEnd"
+            app:layout_constraintBottom_toBottomOf="@id/buttonEnd"
+            app:layout_constraintStart_toEndOf="@id/buttonEnd"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+
+        <Button
+            android:id="@+id/buttonRpt"
+            android:layout_width="157dp"
+            android:layout_height="52dp"
+            android:layout_marginTop="48dp"
+            android:backgroundTint="#FF6F61"
+            android:text="Generate Report"
+            app:layout_constraintTop_toBottomOf="@id/buttonEnd"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <TextView
+            android:id="@+id/reportResults"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="16dp"
+            android:textColor="#3E3E3E"
+            android:textSize="16sp"
+            app:layout_constraintTop_toBottomOf="@id/buttonRpt"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>
+
+
