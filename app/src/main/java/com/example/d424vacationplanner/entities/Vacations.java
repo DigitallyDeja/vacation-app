@@ -3,8 +3,10 @@ package com.example.d424vacationplanner.entities;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
+import com.example.d424vacationplanner.UI.Location;
+
 @Entity(tableName = "vacation")
-public class Vacations {
+public class Vacations extends Location {
 
     @PrimaryKey(autoGenerate = true)
     private int vacationID;
@@ -13,7 +15,8 @@ public class Vacations {
     private String startDate;
     private String endDate;
 
-    public Vacations(int vacationID, String vacationName, String hotelName, String startDate, String endDate) {
+    public Vacations (int vacationID, String vacationName, String hotelName, String startDate, String endDate) {
+        super(vacationID, vacationName, startDate);
         this.vacationID = vacationID;
         this.vacationName = vacationName;
         this.hotelName = hotelName;
@@ -63,5 +66,10 @@ public class Vacations {
 
     public void setEndDate(String endDate) {
         this.endDate = endDate;
+    }
+
+    @Override
+    public String getLocationDetails() {
+        return "Vacation: " + getName() + "\nHotel: " + hotelName + "\nStart: " + startDate + "\nEnd: " + endDate;
     }
 }

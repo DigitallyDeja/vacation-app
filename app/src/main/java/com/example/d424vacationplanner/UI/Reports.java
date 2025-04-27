@@ -2,9 +2,7 @@ package com.example.d424vacationplanner.UI;
 
 import android.app.DatePickerDialog;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
-import android.widget.DatePicker;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -15,6 +13,7 @@ import com.example.d424vacationplanner.database.Repository;
 import com.example.d424vacationplanner.entities.Vacations;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
@@ -59,7 +58,6 @@ public class Reports extends AppCompatActivity {
                         myCalendarVacationStart.set(Calendar.YEAR, year);
                         myCalendarVacationStart.set(Calendar.MONTH, month);
                         myCalendarVacationStart.set(Calendar.DAY_OF_MONTH, dayOfMonth);
-
                         startText.setText(sdf.format(myCalendarVacationStart.getTime()));
                     },
                     myCalendarVacationStart.get(Calendar.YEAR),
@@ -75,7 +73,6 @@ public class Reports extends AppCompatActivity {
                         myCalendarVacationEnd.set(Calendar.YEAR, year);
                         myCalendarVacationEnd.set(Calendar.MONTH, month);
                         myCalendarVacationEnd.set(Calendar.DAY_OF_MONTH, dayOfMonth);
-
                         endText.setText(sdf.format(myCalendarVacationEnd.getTime()));
                     },
                     myCalendarVacationEnd.get(Calendar.YEAR),
@@ -98,29 +95,32 @@ public class Reports extends AppCompatActivity {
                 Date endDate = sdf.parse(endDateString);
 
                 if (startDate != null && endDate != null) {
-                    List<Vacations> allVacations = repository.getAllVacation();
+                    List<Location> allLocation = new ArrayList<>();
+
+                    for (Vacations vacation : repository.getAllVacation()) {
+                        allLocation.add(vacation);
+                    }
+
                     SimpleDateFormat timestampFormat = new SimpleDateFormat("MM/dd/yy hh:mm a", Locale.US);
                     String currentTimestamp = timestampFormat.format(new Date());
                     StringBuilder report = new StringBuilder();
                     report.append("Report Generated: ").append(currentTimestamp).append("\n\n");
 
-                    for (Vacations vacation : allVacations) {
-                        Date vacationStartDate = sdf.parse(vacation.getStartDate());
-                        Date vacationEndDate = sdf.parse(vacation.getEndDate());
+                    for (Location location : allLocation) {
+                        Date eventDate = sdf.parse(location.getDate());
 
-                        if (vacationStartDate != null && vacationEndDate != null) {
-                            if (!vacationEndDate.before(startDate) && !vacationStartDate.after(endDate)) {
-                                report.append(vacation.getVacationName())
-                                        .append("\nStart: ").append(vacation.getStartDate())
-                                        .append("\nEnd: ").append(vacation.getEndDate())
-                                        .append("\n\n");
+                        if (eventDate != null) {
+                            if (!eventDate.before(startDate) && !eventDate.after(endDate)) {
+                                report.append(location.getLocationDetails()).append("\n\n");
                             }
                         }
                     }
+
                     if (report.length() > 0) {
                         reportResults.setText(report.toString());
                     } else {
-                        Toast.makeText(this, "No vacations are found within the range", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(this, "No events found within the range.", Toast.LENGTH_SHORT).show();
+                        reportResults.setText("");
                     }
                 }
 
@@ -132,3 +132,4 @@ public class Reports extends AppCompatActivity {
 
     }
 }
+

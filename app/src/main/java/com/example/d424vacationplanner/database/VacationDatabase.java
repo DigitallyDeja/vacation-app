@@ -12,7 +12,7 @@ import com.example.d424vacationplanner.entities.Excursions;
 import com.example.d424vacationplanner.entities.Vacations;
 
 
-@Database(entities = {Vacations.class, Excursions.class}, version= 5, exportSchema = false)
+@Database(entities = {Vacations.class, Excursions.class}, version= 7, exportSchema = false)
 public abstract class VacationDatabase extends RoomDatabase {
     public abstract VacationDAO vacationDAO();
     public abstract ExcursionDAO excursionDAO();

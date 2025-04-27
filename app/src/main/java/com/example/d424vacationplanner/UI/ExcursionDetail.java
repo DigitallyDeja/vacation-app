@@ -78,9 +78,6 @@ public class ExcursionDetail extends AppCompatActivity {
         for (Vacations vacations : vacationsArrayList) {
             vacationIdList.add(vacations.getVacationID());
         }
-        ArrayAdapter<Integer> vacationIdAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item,vacationIdList);
-        Spinner spinner = findViewById(R.id.spinner);
-        spinner.setAdapter(vacationIdAdapter);
 
         startExcursion = (view, year, month, dayOfMonth) -> {
             myCalendarExcursion.set(Calendar.YEAR, year);
