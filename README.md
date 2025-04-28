@@ -1,8 +1,8 @@
-# Vacation Planner Android App
+# Vacation & Excursion Android App
 
 The Vacation Planner App is an Android application developed in Android Studio. It allows users to create and manage vacations, as well as add excursions linked to each vacation.
 
-Throughout the project, additional functionality was implemented, including scheduling start and end dates, sharing vacation details, setting alerts, and generating vacation reports. Once complete, the app was signed and packaged as an APK for deployment to the Google Play Store.
+Throughout the project, additional functionality was implemented, including scheduling start and end dates, sharing vacation details, setting alerts, and generating vacation reports. Once complete, the app was signed and packaged as an APK for deployment to the GitHub Pages.
 
 - **Minimum SDK Version**: 21 (Android 5.0 Lollipop)
 - **Target SDK Version**: 35 (Android 14)
@@ -11,7 +11,11 @@ Throughout the project, additional functionality was implemented, including sche
 
 Download the Git Repository:
 
-[Vacation Planner GitLab Repository](https://gitlab.com/wgu-gitlab-environment/student-repos/dmck244/d308-mobile-application-development-android.git)
+(https://gitlab.com/wgu-gitlab-environment/student-repos/dmck244/d308-mobile-application-development-android.git)
+
+Download SDK:
+
+(https://digitallydeja.github.io/wgu-projects/)
 
 Open the project in the IDE: **Android Studio** (Flamingo)
 
