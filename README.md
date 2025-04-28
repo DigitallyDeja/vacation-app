@@ -62,6 +62,9 @@ Run the project on a physical Android device or on an Android emulator through t
    - **Delete Excursion**: Removes the excursion from the Vacation Details.
    - **Alert**: Displays a notification if the excursion is scheduled for today.
 
+**Encapsulation, Inheritance, & Polymorphism**
+   - Encapsulation is implemented throughout using private variables and public getters/setters. Inheritance and polymorphism are demonstrated with the Vacation class extending the Location parent class and overriding its getMessage method. A search functionality is available to filter vacations by name. 
+
 ## Additional Features
 
 - **Search Functionality**  
