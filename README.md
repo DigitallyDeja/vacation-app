@@ -10,8 +10,7 @@ Throughout the project, additional functionality was implemented, including sche
 ## Basic Instructions
 
 Download the Git Repository:
-
-([https://gitlab.com/wgu-gitlab-environment/student-repos/dmck244/d308-mobile-application-development-android.git](https://github.com/DigitallyDeja/vacation-app.git))
+(https://github.com/DigitallyDeja/vacation-app.git)
 
 Download SDK:
 
